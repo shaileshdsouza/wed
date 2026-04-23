@@ -251,7 +251,7 @@ export function AssignmentSpecs() {
                   "group relative cursor-pointer transition-all flex flex-col shadow-none overflow-hidden",
                   isRecommended
                     ? "border-2 border-primary/30 bg-primary/[0.02] hover:border-primary/60 hover:bg-primary/[0.04]"
-                    : "border border-border/40 bg-card/20 hover:border-primary/30"
+                    : "border border-border/40 bg-card hover:border-primary/30"
                 )}
                 onClick={() => handleTypeSelect(t.type)}
               >
@@ -374,7 +374,7 @@ export function AssignmentSpecs() {
 
         <div className="grid gap-6 lg:grid-cols-4">
           <div className="lg:col-span-3 space-y-5">
-            <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none">
+            <Card className="border border-border/30 rounded-xl bg-card shadow-none">
               <CardContent className="pt-6 pb-6 px-6 space-y-4">
                 <div className="space-y-2">
                   <Label className="eyebrow text-muted-foreground opacity-50">Assignment title</Label>
@@ -438,7 +438,7 @@ export function AssignmentSpecs() {
               )
 
               return (
-                <Card key={block.id} className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+                <Card key={block.id} className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                   {commonHeader}
                   {!isCollapsed && (
                     <CardContent className="p-6 space-y-4">

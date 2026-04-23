@@ -96,7 +96,7 @@ export function CourseSelection() {
               {MOCK_DRAFTS.map((draft) => (
                 <div
                   key={draft.id}
-                  className="group flex items-center justify-between px-6 py-5 rounded-xl border border-border/30 bg-card/30 hover:border-primary/30 hover:bg-card/60 transition-all cursor-pointer"
+                  className="group flex items-center justify-between px-6 py-5 rounded-xl border border-border/30 bg-card hover:border-primary/30 hover:bg-muted/20 transition-all cursor-pointer"
                   onClick={() => resumeDraft(draft)}
                 >
                   <div className="flex items-center gap-4 min-w-0">
@@ -145,7 +145,7 @@ export function CourseSelection() {
             {MOCK_COURSES.map((course) => (
               <Card
                 key={course.id}
-                className="group relative overflow-hidden cursor-pointer hover:border-primary/20 transition-all border-border/20 bg-card/20 backdrop-blur-sm rounded-xl p-2 flex flex-col shadow-none"
+                className="group relative overflow-hidden cursor-pointer hover:border-primary/20 transition-all border-border/20 bg-card rounded-xl p-2 flex flex-col shadow-none"
                 onClick={() => handleSelect(course.name)}
               >
                 <div className="absolute top-6 right-6 z-10 flex items-center gap-1.5">

@@ -366,7 +366,7 @@ export function CalibrationCheck() {
           {calState === "pre_calibrated" && (
             <>
               {/* Card 1 — Reuse summary */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <CardContent className="p-6 space-y-4">
                   {/* Badge + headline + copy */}
                   <div className="space-y-2.5">
@@ -440,7 +440,7 @@ export function CalibrationCheck() {
               </Card>
 
               {/* Card 2 — Learnings from the selected assignment */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <CardContent className="p-6 space-y-4">
                   <p className="eyebrow text-muted-foreground/60">
                     Learnings from {sourceHistory ? sourceHistory.title : "the selected assignment"}
@@ -542,7 +542,7 @@ export function CalibrationCheck() {
           {calState === "calibration_needed" && (
             <>
               {/* Single card — status, why required, system knows, you'll define */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <CardContent className="p-6 space-y-4">
                   {/* Badge + headline + copy */}
                   <div className="space-y-2.5">
@@ -634,7 +634,7 @@ export function CalibrationCheck() {
           {(calState === "review_recommended" || calState === "limited") && (
             <>
               {/* Block 1: Status header */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <CardContent className="p-6 space-y-4">
                   <div className="space-y-3">
                     <Badge
@@ -653,7 +653,7 @@ export function CalibrationCheck() {
               </Card>
 
               {/* Block 2: What we're using */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none">
                 <CardContent className="p-6 space-y-3">
                   <p className="eyebrow text-muted-foreground/40">What calibration is based on</p>
                   <div className="flex flex-wrap gap-2">
@@ -689,7 +689,7 @@ export function CalibrationCheck() {
                       </div>
                     </CardContent>
                   </Card>
-                  <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none">
+                  <Card className="border border-border/30 rounded-xl bg-card shadow-none">
                     <CardContent className="p-6 space-y-1">
                       <p className="eyebrow text-muted-foreground/40">Recommended action</p>
                       <p className="text-sm text-muted-foreground/70 font-medium">
@@ -796,7 +796,7 @@ export function CalibrationCheck() {
             <div className="space-y-4">
 
               {/* Card 1 — Rubric context */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04]">
                   <p className="eyebrow text-muted-foreground/60">Rubric criteria for this assignment</p>
                 </div>
@@ -813,7 +813,7 @@ export function CalibrationCheck() {
               </Card>
 
               {/* Card 2 — Reference materials */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center justify-between">
                   <p className="eyebrow text-muted-foreground/60">
                     Reference materials <span className="text-muted-foreground/30">(optional)</span>
@@ -859,7 +859,7 @@ export function CalibrationCheck() {
               </Card>
 
               {/* Card 3 — Strong answer */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center gap-2">
                   <p className="eyebrow text-foreground/70">What should a strong answer include?</p>
                   <span className="eyebrow text-primary/60 border border-primary/20 px-1.5 py-0.5 rounded-full">Required</span>
@@ -881,7 +881,7 @@ export function CalibrationCheck() {
               </Card>
 
               {/* Card 4 — Average vs excellent */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center gap-2">
                   <p className="eyebrow text-foreground/70">What separates average from excellent?</p>
                   <span className="eyebrow text-primary/60 border border-primary/20 px-1.5 py-0.5 rounded-full">Required</span>
@@ -903,7 +903,7 @@ export function CalibrationCheck() {
               </Card>
 
               {/* Card 5 — Penalties */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center gap-2">
                   <p className="eyebrow text-foreground/70">What should be penalized?</p>
                   <span className="eyebrow text-primary/60 border border-primary/20 px-1.5 py-0.5 rounded-full">Required</span>
@@ -925,7 +925,7 @@ export function CalibrationCheck() {
               </Card>
 
               {/* Card 6 — Multiple valid approaches */}
-              <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none overflow-hidden">
+              <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center gap-2">
                   <p className="eyebrow text-foreground/70">Are multiple valid answer approaches acceptable?</p>
                   <span className="eyebrow text-primary/60 border border-primary/20 px-1.5 py-0.5 rounded-full">Required</span>
@@ -1093,7 +1093,7 @@ export function CalibrationCheck() {
             </p>
           </div>
 
-          <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none">
+          <Card className="border border-border/30 rounded-xl bg-card shadow-none">
             <CardContent className="p-6 space-y-5">
               <p className="eyebrow text-muted-foreground/40">How this assignment will be interpreted</p>
               <div className="space-y-4">
@@ -1129,7 +1129,7 @@ export function CalibrationCheck() {
             </CardContent>
           </Card>
 
-          <Card className="border border-border/30 rounded-xl bg-card/10 backdrop-blur-sm shadow-none">
+          <Card className="border border-border/30 rounded-xl bg-card shadow-none">
             <CardContent className="p-6 space-y-3">
               <p className="eyebrow text-muted-foreground/40">Rubric alignment</p>
               <div className="space-y-0">

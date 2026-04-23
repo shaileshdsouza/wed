@@ -126,7 +126,7 @@ export function RubricTweak() {
               </Button>
            </div>
 
-          <Card className="border border-border/20 overflow-hidden rounded-xl bg-card/10 backdrop-blur-sm shadow-none">
+          <Card className="border border-border/30 overflow-hidden rounded-xl bg-card shadow-none">
             {/*
               Sticky first column relies on the DS Table primitive's own
               <div className="overflow-x-auto"> wrapper as the scrolling

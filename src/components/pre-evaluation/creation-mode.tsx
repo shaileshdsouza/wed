@@ -96,7 +96,7 @@ export function CreationMode() {
         <div className="grid gap-5 md:grid-cols-3">
           {/* Option 1 — History */}
           <Card
-            className="group cursor-pointer hover:border-primary/40 transition-all border border-border/40 bg-card/20 p-4 flex flex-col shadow-none"
+            className="group cursor-pointer hover:border-primary/40 transition-all border border-border/40 bg-card p-4 flex flex-col shadow-none"
             onClick={() => handleModeSelect("history")}
           >
             <CardHeader className="pb-2">
@@ -162,7 +162,7 @@ export function CreationMode() {
 
           {/* Option 3 — Scratch */}
           <Card
-            className="group cursor-pointer hover:border-primary/40 transition-all border border-border/40 bg-card/20 p-4 flex flex-col shadow-none"
+            className="group cursor-pointer hover:border-primary/40 transition-all border border-border/40 bg-card p-4 flex flex-col shadow-none"
             onClick={() => handleModeSelect("scratch")}
           >
             <CardHeader className="pb-2">
