@@ -319,10 +319,10 @@ export function CalibrationCheck() {
     : [{ id: "1", name: "Technical Accuracy" }, { id: "2", name: "Code Organization" }, { id: "3", name: "Reasoning & Justification" }]
 
   const readinessRequired = [
-    { id: "strong", ok: guidance.strongAnswer.trim().length > 10, label: "Strong answer defined", hint: "Describe what a strong submission demonstrates." },
-    { id: "excellent", ok: guidance.excellentVsAverage.trim().length > 10, label: "Average vs excellent defined", hint: "Define what makes a response stand out." },
+    { id: "strong", ok: guidance.strongAnswer.trim().length > 10, label: "Strong answer guidance", hint: "Describe what a strong answer should demonstrate." },
+    { id: "excellent", ok: guidance.excellentVsAverage.trim().length > 10, label: "Excellence bar defined", hint: "Define what makes a response stand out from acceptable." },
     { id: "penalties", ok: guidance.penalties.trim().length > 10, label: "Penalties defined", hint: "List errors or weak patterns." },
-    { id: "approaches", ok: guidance.multipleApproaches !== null, label: "Answer flexibility selected", hint: "Choose whether multiple valid approaches are acceptable." },
+    { id: "approaches", ok: guidance.multipleApproaches !== null, label: "Flexibility selected", hint: "Choose whether students can take different valid approaches." },
   ]
   const readinessOptional = [
     { id: "rubric", ok: true, label: "Rubric criteria available" },
@@ -353,7 +353,7 @@ export function CalibrationCheck() {
         <div>
           <h1 className="text-xl font-semibold tracking-tight text-foreground/90">Calibration</h1>
           <p className="eyebrow font-semibold text-muted-foreground/60">
-            Evaluation readiness check
+            Set grading guidance for the system
           </p>
         </div>
       </div>
@@ -491,7 +491,7 @@ export function CalibrationCheck() {
               </Card>
 
               {/* Card 3 — Refine this calibration */}
-              <Card className="border border-border/10 bg-card/10 rounded-xl backdrop-blur-sm shadow-none">
+              <Card className="border border-border/10 bg-card rounded-xl shadow-none">
                 <CardContent className="p-6 space-y-3">
                   <div className="flex items-center gap-2">
                     <Sparkles className="h-3.5 w-3.5 text-primary/40" />
@@ -717,7 +717,7 @@ export function CalibrationCheck() {
               )}
 
               {nudges.length > 0 && (
-                <Card className="border border-border/10 bg-card/10 rounded-xl backdrop-blur-sm shadow-none">
+                <Card className="border border-border/10 bg-card rounded-xl shadow-none">
                   <CardContent className="p-6 space-y-3">
                     <div className="flex items-center gap-2">
                       <Sparkles className="h-3.5 w-3.5 text-primary/40" />
@@ -785,11 +785,6 @@ export function CalibrationCheck() {
       {/* ── PHASE: FORM ── */}
       {phase === "form" && (
         <div className="space-y-5">
-          <div className="max-w-3xl mx-auto space-y-1 pb-1">
-            <h2 className="text-xl font-semibold tracking-tight">Define how this assignment should be evaluated</h2>
-            <p className="text-sm text-muted-foreground/60 font-medium">Your guidance helps the system support consistent grading.</p>
-          </div>
-
           <div className="grid gap-6 lg:grid-cols-[1fr_280px]">
 
             {/* LEFT — cards */}
@@ -798,17 +793,17 @@ export function CalibrationCheck() {
               {/* Card 1 — Rubric context */}
               <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04]">
-                  <p className="eyebrow text-muted-foreground/60">Rubric criteria for this assignment</p>
+                  <p className="eyebrow text-muted-foreground/60">Rubric criteria</p>
                 </div>
                 <CardContent className="p-6 space-y-2.5">
                   <div className="flex flex-wrap gap-2">
                     {calRubric.map((crit) => (
-                      <span key={crit.id} className="eyebrow px-2.5 py-1 rounded-full border border-border/20 bg-card/30 text-foreground/55">
+                      <span key={crit.id} className="eyebrow px-2.5 py-1 rounded-full border border-border/20 bg-muted/10 text-foreground/55">
                         {crit.name}
                       </span>
                     ))}
                   </div>
-                  <p className="text-xs font-medium text-muted-foreground/40">Use these criteria to guide calibration.</p>
+                  <p className="text-xs font-medium text-muted-foreground/40">These criteria anchor the grading guidance below.</p>
                 </CardContent>
               </Card>
 
@@ -816,11 +811,11 @@ export function CalibrationCheck() {
               <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center justify-between">
                   <p className="eyebrow text-muted-foreground/60">
-                    Reference materials <span className="text-muted-foreground/30">(optional)</span>
+                    Reference materials <span className="text-muted-foreground/30">(Optional)</span>
                   </p>
                   <button className="eyebrow flex items-center gap-1 text-primary/50 hover:text-primary/70 transition-colors">
                     <Sparkles className="h-3 w-3" />
-                    Suggest draft
+                    Generate draft
                   </button>
                 </div>
                 <CardContent className="p-6 space-y-3">
@@ -839,7 +834,7 @@ export function CalibrationCheck() {
                   </label>
                   <div className="flex flex-wrap gap-1.5">
                     {["Answer key", "Sample response", "Marking notes", "Common mistakes"].map((tag) => (
-                      <span key={tag} className="eyebrow px-2.5 py-1 rounded-full border border-border/15 bg-card/20 text-muted-foreground/40">
+                      <span key={tag} className="eyebrow px-2.5 py-1 rounded-full border border-border/15 bg-muted/5 text-muted-foreground/40">
                         {tag}
                       </span>
                     ))}
@@ -847,33 +842,33 @@ export function CalibrationCheck() {
                   {uploadedFiles.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {uploadedFiles.map((f, i) => (
-                        <span key={i} className="eyebrow flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border/20 bg-card/30 text-foreground/60">
+                        <span key={i} className="eyebrow flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border/20 bg-muted/10 text-foreground/60">
                           <FileText className="h-3 w-3" />
                           {f.name}
                         </span>
                       ))}
                     </div>
                   )}
-                  <p className="eyebrow text-muted-foreground/35">Uploaded materials help draft and validate guidance. They do not replace your final review.</p>
+                  <p className="eyebrow text-muted-foreground/35">Helps draft guidance. Does not replace final review.</p>
                 </CardContent>
               </Card>
 
               {/* Card 3 — Strong answer */}
               <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center gap-2">
-                  <p className="eyebrow text-foreground/70">What should a strong answer include?</p>
-                  <span className="eyebrow text-primary/60 border border-primary/20 px-1.5 py-0.5 rounded-full">Required</span>
+                  <p className="eyebrow text-foreground/70">What should a strong answer demonstrate?</p>
+                  <span className="eyebrow text-muted-foreground/35 border border-border/20 px-1.5 py-0.5 rounded-full">Required</span>
                   {guidance.strongAnswer.trim().length > 10 && (
                     <div className="ml-auto h-4 w-4 rounded-full bg-[color:var(--status-success)]/10 border border-[color:var(--status-success)]/20 flex items-center justify-center shrink-0">
                       <Check className="h-2.5 w-2.5 text-[color:var(--status-success)]/80" />
                     </div>
                   )}
                 </div>
-                <CardContent className="p-6 space-y-2">
-                  <p className="text-xs font-medium text-muted-foreground/45">Key qualities, evidence, or structure expected.</p>
+                <CardContent className="p-5 space-y-2">
+                  <p className="text-xs font-medium text-muted-foreground/45">List the key qualities, evidence, or structure expected.</p>
                   <Textarea
-                    placeholder="Describe what a strong submission demonstrates..."
-                    className="min-h-[72px] text-sm border-border/30 bg-card/30 focus-visible:ring-primary/20 resize-none rounded-lg shadow-none placeholder:text-muted-foreground/20"
+                    placeholder="Describe what a strong answer should demonstrate..."
+                    className="min-h-[60px] text-sm border-border/30 bg-background/50 focus-visible:ring-primary/20 resize-none rounded-lg shadow-none placeholder:text-muted-foreground/20"
                     value={guidance.strongAnswer}
                     onChange={(e) => setGuidance((g) => ({ ...g, strongAnswer: e.target.value }))}
                   />
@@ -883,19 +878,19 @@ export function CalibrationCheck() {
               {/* Card 4 — Average vs excellent */}
               <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center gap-2">
-                  <p className="eyebrow text-foreground/70">What separates average from excellent?</p>
-                  <span className="eyebrow text-primary/60 border border-primary/20 px-1.5 py-0.5 rounded-full">Required</span>
+                  <p className="eyebrow text-foreground/70">What makes an answer excellent?</p>
+                  <span className="eyebrow text-muted-foreground/35 border border-border/20 px-1.5 py-0.5 rounded-full">Required</span>
                   {guidance.excellentVsAverage.trim().length > 10 && (
                     <div className="ml-auto h-4 w-4 rounded-full bg-[color:var(--status-success)]/10 border border-[color:var(--status-success)]/20 flex items-center justify-center shrink-0">
                       <Check className="h-2.5 w-2.5 text-[color:var(--status-success)]/80" />
                     </div>
                   )}
                 </div>
-                <CardContent className="p-6 space-y-2">
-                  <p className="text-xs font-medium text-muted-foreground/45">Define what makes a response stand out.</p>
+                <CardContent className="p-5 space-y-2">
+                  <p className="text-xs font-medium text-muted-foreground/45">Define what makes a strong response stand out from an acceptable one.</p>
                   <Textarea
-                    placeholder="Describe what distinguishes an excellent answer from an acceptable one..."
-                    className="min-h-[72px] text-sm border-border/30 bg-card/30 focus-visible:ring-primary/20 resize-none rounded-lg shadow-none placeholder:text-muted-foreground/20"
+                    placeholder="Describe what makes an answer clearly excellent..."
+                    className="min-h-[60px] text-sm border-border/30 bg-background/50 focus-visible:ring-primary/20 resize-none rounded-lg shadow-none placeholder:text-muted-foreground/20"
                     value={guidance.excellentVsAverage}
                     onChange={(e) => setGuidance((g) => ({ ...g, excellentVsAverage: e.target.value }))}
                   />
@@ -905,19 +900,19 @@ export function CalibrationCheck() {
               {/* Card 5 — Penalties */}
               <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center gap-2">
-                  <p className="eyebrow text-foreground/70">What should be penalized?</p>
-                  <span className="eyebrow text-primary/60 border border-primary/20 px-1.5 py-0.5 rounded-full">Required</span>
+                  <p className="eyebrow text-foreground/70">What should lower the score?</p>
+                  <span className="eyebrow text-muted-foreground/35 border border-border/20 px-1.5 py-0.5 rounded-full">Required</span>
                   {guidance.penalties.trim().length > 10 && (
                     <div className="ml-auto h-4 w-4 rounded-full bg-[color:var(--status-success)]/10 border border-[color:var(--status-success)]/20 flex items-center justify-center shrink-0">
                       <Check className="h-2.5 w-2.5 text-[color:var(--status-success)]/80" />
                     </div>
                   )}
                 </div>
-                <CardContent className="p-6 space-y-2">
-                  <p className="text-xs font-medium text-muted-foreground/45">List errors, missing elements, or weak patterns.</p>
+                <CardContent className="p-5 space-y-2">
+                  <p className="text-xs font-medium text-muted-foreground/45">List errors, omissions, or weak patterns.</p>
                   <Textarea
-                    placeholder="Describe what reduces the score..."
-                    className="min-h-[72px] text-sm border-border/30 bg-card/30 focus-visible:ring-primary/20 resize-none rounded-lg shadow-none placeholder:text-muted-foreground/20"
+                    placeholder="Describe what should reduce the score..."
+                    className="min-h-[60px] text-sm border-border/30 bg-background/50 focus-visible:ring-primary/20 resize-none rounded-lg shadow-none placeholder:text-muted-foreground/20"
                     value={guidance.penalties}
                     onChange={(e) => setGuidance((g) => ({ ...g, penalties: e.target.value }))}
                   />
@@ -927,22 +922,22 @@ export function CalibrationCheck() {
               {/* Card 6 — Multiple valid approaches */}
               <Card className="border border-border/30 rounded-xl bg-card shadow-none overflow-hidden">
                 <div className="px-5 py-3 border-b border-border/10 bg-muted/[0.04] flex items-center gap-2">
-                  <p className="eyebrow text-foreground/70">Are multiple valid answer approaches acceptable?</p>
-                  <span className="eyebrow text-primary/60 border border-primary/20 px-1.5 py-0.5 rounded-full">Required</span>
+                  <p className="eyebrow text-foreground/70">Can students take different valid approaches?</p>
+                  <span className="eyebrow text-muted-foreground/35 border border-border/20 px-1.5 py-0.5 rounded-full">Required</span>
                   {guidance.multipleApproaches !== null && (
                     <div className="ml-auto h-4 w-4 rounded-full bg-[color:var(--status-success)]/10 border border-[color:var(--status-success)]/20 flex items-center justify-center shrink-0">
                       <Check className="h-2.5 w-2.5 text-[color:var(--status-success)]/80" />
                     </div>
                   )}
                 </div>
-                <CardContent className="p-6 space-y-3">
-                  <p className="text-xs font-medium text-muted-foreground/45">This helps the system score alternate but valid answers fairly.</p>
+                <CardContent className="p-5 space-y-3">
+                  <p className="text-xs font-medium text-muted-foreground/45">This helps the system grade alternate but valid answers fairly.</p>
                   <div className="grid grid-cols-3 gap-3">
                     {(
                       [
-                        { value: "yes" as const, label: "Yes", sub: "Multiple valid approaches" },
-                        { value: "no" as const, label: "No", sub: "Fixed expected elements" },
-                        { value: "partial" as const, label: "Partially", sub: "Some flexibility allowed" },
+                        { value: "yes" as const, label: "Yes", sub: "Different valid approaches are acceptable" },
+                        { value: "no" as const, label: "No", sub: "Specific expected elements must be present" },
+                        { value: "partial" as const, label: "Partially", sub: "Core elements are fixed, but method can vary" },
                       ] as const
                     ).map((opt) => (
                       <button
@@ -952,7 +947,7 @@ export function CalibrationCheck() {
                           "flex flex-col items-start p-4 rounded-xl border text-left transition-all",
                           guidance.multipleApproaches === opt.value
                             ? "border-primary/30 bg-primary/5"
-                            : "border-border/20 bg-card/20 hover:border-border/40"
+                            : "border-border/20 bg-card hover:border-border/40"
                         )}
                       >
                         <span className="text-sm font-semibold tracking-tight">{opt.label}</span>
@@ -1006,45 +1001,36 @@ export function CalibrationCheck() {
                       </div>
                       <div>
                         <p className="eyebrow text-primary/80 leading-tight">Calibration readiness</p>
-                        <p className="eyebrow text-muted-foreground opacity-40 leading-tight">{readinessRequired.filter((c) => c.ok).length} / 4 complete</p>
+                        <p className="eyebrow text-muted-foreground opacity-40 leading-tight">{readinessRequired.filter((c) => c.ok).length} / 4 required complete</p>
                       </div>
                     </div>
-                    <span className={cn(
-                      "text-2xl font-semibold tracking-tight leading-none",
-                      readinessScore === 100 ? "text-[color:var(--status-success)]" : readinessScore >= 50 ? "text-[color:var(--status-warning)]" : "text-muted-foreground/40"
-                    )}>
-                      {readinessScore}%
-                    </span>
                   </div>
                 </div>
-                <CardContent className="px-5 pt-5 pb-6 space-y-4">
+                <CardContent className="px-5 pt-4 pb-6 space-y-4">
+                  <p className="text-xs font-medium text-muted-foreground/45">Complete all required guidance to continue.</p>
 
                   {/* Required checks */}
-                  <div className="space-y-2.5">
+                  <div className="space-y-2">
                     {readinessRequired.map((c) => (
-                      <div key={c.id} className="space-y-0.5">
-                        <div className="flex items-start gap-2.5">
-                          <div className={cn(
-                            "mt-0.5 h-4 w-4 rounded-full flex items-center justify-center shrink-0 border",
-                            c.ok
-                              ? "bg-[color:var(--status-success)]/10 border-[color:var(--status-success)]/20 text-[color:var(--status-success)]/80"
-                              : "bg-muted/10 border-border/20 text-muted-foreground/30"
-                          )}>
-                            {c.ok ? <Check className="h-2.5 w-2.5" /> : <span className="h-1 w-1 rounded-full bg-muted-foreground/30 block" />}
-                          </div>
-                          <p className={cn("text-xs font-bold leading-tight", c.ok ? "text-foreground/70" : "text-foreground/50")}>
-                            {c.label}
-                          </p>
+                      <div key={c.id} className="flex items-center gap-2.5">
+                        <div className={cn(
+                          "h-4 w-4 rounded-full flex items-center justify-center shrink-0 border",
+                          c.ok
+                            ? "bg-[color:var(--status-success)]/10 border-[color:var(--status-success)]/20 text-[color:var(--status-success)]/80"
+                            : "bg-muted/10 border-border/20 text-muted-foreground/30"
+                        )}>
+                          {c.ok ? <Check className="h-2.5 w-2.5" /> : <span className="h-1 w-1 rounded-full bg-muted-foreground/30 block" />}
                         </div>
-                        {!c.ok && (
-                          <p className="text-xs font-medium text-muted-foreground/45 leading-relaxed pl-6">{c.hint}</p>
-                        )}
+                        <p className={cn("text-xs font-bold leading-tight", c.ok ? "text-foreground/70" : "text-foreground/50")}>
+                          {c.label}
+                        </p>
                       </div>
                     ))}
                   </div>
 
-                  {/* Optional checks */}
-                  <div className="space-y-2 pt-1 border-t border-border/10">
+                  {/* Supporting checks */}
+                  <div className="space-y-2 pt-3 border-t border-border/10">
+                    <p className="eyebrow text-muted-foreground/30">Supporting</p>
                     {readinessOptional.map((c) => (
                       <div key={c.id} className="flex items-start gap-2.5">
                         <div className={cn(
